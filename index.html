@@ -1685,39 +1685,62 @@
                     </div>
                 </div>
                 <div class="contact-form reveal">
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" placeholder="Jane Author" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" id="email" placeholder="jane@example.com" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service">
-                                <option value="">Select a service...</option>
-                                <option value="launch">Book Launch Campaign</option>
-                                <option value="branding">Author Branding</option>
-                                <option value="amazon">Amazon Advertising</option>
-                                <option value="email">Email Marketing</option>
-                                <option value="website">Author Website</option>
-                                <option value="strategy">Marketing Strategy</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Tell Me About Your Book</label>
-                            <textarea id="message" placeholder="Share your book's title, genre, publishing status, and what marketing help you need..." required></textarea>
-                        </div>
-                        <button type="submit" class="form-submit">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
+<form id="contactForm" action="https://formspree.io/f/xjykknnz" method="POST">
+
+    <div class="form-row">
+
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name"
+                placeholder="Jane Author" 
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email"
+                placeholder="jane@example.com" 
+                required>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="service">Service Interested In</label>
+
+        <select id="service" name="service">
+            <option value="">Select a service...</option>
+            <option value="Book Launch Campaign">Book Launch Campaign</option>
+            <option value="Author Branding">Author Branding</option>
+            <option value="Amazon Advertising">Amazon Advertising</option>
+            <option value="Email Marketing">Email Marketing</option>
+            <option value="Author Website">Author Website</option>
+            <option value="Marketing Strategy">Marketing Strategy</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Tell Me About Your Book</label>
+
+        <textarea 
+            id="message" 
+            name="message"
+            placeholder="Share your book's title, genre, publishing status, and what marketing help you need..."
+            required></textarea>
+    </div>
+
+    <button type="submit" class="form-submit">
+        <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+
+</form>                </div>
             </div>
         </div>
     </section>
@@ -1904,16 +1927,17 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('.form-submit');
-            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-            btn.style.background = 'linear-gradient(135deg, #2d8a4e, #55c47a)';
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                btn.style.background = '';
-                e.target.reset();
-            }, 3000);
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+    const btn = e.target.querySelector('.form-submit');
+
+    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+    btn.style.background = 'linear-gradient(135deg, #2d8a4e, #55c47a)';
+
+    setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        btn.style.background = '';
+    }, 3000);
+});
         });
 
         document.getElementById('newsletterForm').addEventListener('submit', (e) => {
